@@ -3,7 +3,7 @@ import cors from "cors";
 import { readFile, writeFile } from "node:fs/promises";
 
 const server = express();
-const port = 3000;
+const port = process.env.PORT;
 
 server.use(cors());
 // 用与处理从前端请求参数中获取值
