@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "title": "Hina",
+    "tag": "daily",
+    "content": "Hina is youngest"
+  },
+  {
+    "id": "2",
+    "title": "Siyeon",
+    "tag": "work",
+    "content": "Siyeon is the most hardworking member"
+  },
+  {
+    "id": "3",
+    "title": "Chodan",
+    "tag": "drummer",
+    "content": "Chodan is the leader and drummer of QWER"
+  },
+  {
+    "id": "4",
+    "title": "Magenta",
+    "tag": "bass",
+    "content": "Magenta is the bassist of QWER"
+  },
+  {
+    "id": "5",
+    "title": "Aria",
+    "tag": "daily",
+    "content": "Aria loves singing in the morning"
+  },
+  {
+    "id": "6",
+    "title": "Luna",
+    "tag": "work",
+    "content": "Luna is focused on improving her vocals"
+  },
+  {
+    "id": "7",
+    "title": "Mina",
+    "tag": "dance",
+    "content": "Mina is known for her elegant dance moves"
+  },
+  {
+    "id": "8",
+    "title": "Yuna",
+    "tag": "rap",
+    "content": "Yuna writes her own rap lyrics"
+  },
+  {
+    "id": "9",
+    "title": "Sora",
+    "tag": "visual",
+    "content": "Sora is recognized for her stunning visuals"
+  },
+  {
+    "id": "10",
+    "title": "Nari",
+    "tag": "daily",
+    "content": "Nari enjoys reading books in her free time"
+  },
+  {
+    "id": "11",
+    "title": "Eunbi",
+    "tag": "leader",
+    "content": "Eunbi leads the team with confidence"
+  },
+  {
+    "id": "12",
+    "title": "Jisoo",
+    "tag": "vocal",
+    "content": "Jisoo has a powerful and clear voice"
+  },
+  {
+    "id": "13",
+    "title": "Haein",
+    "tag": "maknae",
+    "content": "Haein is the youngest and full of energy"
+  }
+]
