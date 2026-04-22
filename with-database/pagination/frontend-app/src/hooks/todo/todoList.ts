@@ -16,7 +16,7 @@ import { useTodoContent } from "./todoContent.ts";
 
 export function useTodoList(
   todoQueryClient: QueryClient,
-  showToast: (severity: ToastSeverity, summary: string) => void
+  showToast: (severity: ToastSeverity, summary: string) => void,
 ) {
   // get todos
   const { todos, isTodoGetting, isTodoLoadError } = useGetTodo();
@@ -47,7 +47,7 @@ export function useTodoList(
     setCurrentTodo,
     setEditTodoInfo,
     showToast,
-    getTodoContentById
+    getTodoContentById,
   );
 
   return {

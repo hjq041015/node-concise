@@ -1,18 +1,16 @@
-import { Todo, TodoDetail } from '../types/Todo';
+import { Todo, TodoDetail } from "../types/Todo";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const PAGE_SIZE = import.meta.env.VITE_PAGE_SIZE;
 
-// TODO: Enable pagination
 export async function getTodos(
-  currentPage: number = 1
-  // searchText: string = ''
+  currentPage: number = 1,
+  searchText: string = "",
 ): Promise<Todo[]> {
-  // const searchTextParam = searchText ? `&search=${searchText}` : '';
+  const searchTextParam = searchText ? `&search=${searchText}` : "";
 
   const response = await fetch(
-    // `${BASE_URL}?page=${currentPage}&limit=${PAGE_SIZE}${searchTextParam}`
-    `${BASE_URL}?page=${currentPage}&limit=${PAGE_SIZE}`
+    `${BASE_URL}?page=${currentPage}&limit=${PAGE_SIZE}${searchTextParam}`,
   );
   const todoData = await response.json();
 
@@ -47,7 +45,7 @@ export async function getTodoContentById(id: number): Promise<string> {
 
 export async function deleteTodoById(id: number) {
   const response = await fetch(`${BASE_URL}/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
   });
 
   const result = await response.json();
@@ -64,9 +62,9 @@ type UpdateTodo = {
 
 export async function updateTodo(todo: UpdateTodo) {
   const response = await fetch(BASE_URL, {
-    method: 'PATCH',
+    method: "PATCH",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(todo),
   });
@@ -77,9 +75,9 @@ export async function updateTodo(todo: UpdateTodo) {
 
 export async function addTodo(todo: TodoDetail) {
   const response = await fetch(BASE_URL, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(todo),
   });
@@ -89,7 +87,7 @@ export async function addTodo(todo: TodoDetail) {
 }
 
 export async function getTodoCount(searchText: string) {
-  const searchTextParam = searchText ? `?search=${searchText}` : '';
+  const searchTextParam = searchText ? `?search=${searchText}` : "";
 
   const response = await fetch(`${BASE_URL}/count${searchTextParam}`);
   const result = await response.json();

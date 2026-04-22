@@ -1,9 +1,21 @@
+import { Op } from "sequelize";
 import Todo from "../models/todoModel.js";
+import sequelize from "../utils/dbHelper.js";
 
-export async function getAllTodos(offset, limit = 5) {
+export async function getAllTodos(offset, limit = 5, search) {
+  let titlefilter = {};
+
+  if (search) {
+    titlefilter = {
+      where: sequelize.where(sequelize.fn("LOWER", sequelize.col("title")), {
+        [Op.like]: `%${search.toLowerCase()}%`,
+      }),
+    };
+  }
   const todos = await Todo.findAll({
     offset,
     limit,
+    ...titlefilter,
   });
 
   return todos;
@@ -37,8 +49,17 @@ export async function updateTodo(updateTodo) {
   });
 }
 
-export async function count() {
-  const count = await Todo.count();
+export async function count(search) {
+  let titlefilter = {};
+
+  if (search) {
+    titlefilter = {
+      where: sequelize.where(sequelize.fn("LOWER", sequelize.col("title")), {
+        [Op.like]: `%${search.toLowerCase()}%`,
+      }),
+    };
+  }
+  const count = await Todo.count(titlefilter);
 
   return count;
 }

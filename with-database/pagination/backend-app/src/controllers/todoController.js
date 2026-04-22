@@ -10,10 +10,11 @@ import {
 export async function getTodos(req, res) {
   const page = req.query.page;
   const limit = req.query.limit;
+  const search = req.query.search || "";
 
   const offset = (page - 1) * limit;
 
-  const todos = await getAllTodos(offset, limit);
+  const todos = await getAllTodos(offset, limit, search);
 
   return res.status(200).json(todos);
 }
@@ -73,7 +74,8 @@ export async function updateTodo(req, res) {
 }
 
 export async function countTodo(req, res) {
-  const count = await countApi();
+  const search = req.query.search || "";
+  const count = await countApi(search);
 
   return res.status(200).json({
     count,
