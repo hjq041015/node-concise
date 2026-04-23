@@ -8,8 +8,8 @@ import {
 } from "../services/todoService.js";
 
 export async function getTodos(req, res) {
-  const page = req.query.page;
-  const limit = req.query.limit;
+  const page = req.query.page || 1;
+  const limit = req.query.limit || 5;
   const search = req.query.search || "";
 
   const offset = (page - 1) * limit;
