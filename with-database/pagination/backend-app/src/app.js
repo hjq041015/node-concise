@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import todoRouter from "./routes/todoRoute.js";
 import { rateLimit } from "express-rate-limit";
+import { pinoHttpMiddleware } from "./utils/loggerHelper.js";
 
 const app = express();
 const limiter = rateLimit({
@@ -15,6 +16,7 @@ const limiter = rateLimit({
 
 app.use(cors());
 app.use(express.json());
+app.use(pinoHttpMiddleware);
 app.use(limiter);
 
 app.use("/v1", todoRouter);
