@@ -28,11 +28,12 @@ export async function getTodoById(todoId) {
 }
 
 export async function deleteTodoById(todoId) {
-  await Todo.destroy({
+  const deletedTodoNumbers = await Todo.destroy({
     where: {
       id: todoId,
     },
   });
+  return deletedTodoNumbers;
 }
 
 export async function createTodo(addTodo) {
@@ -42,11 +43,13 @@ export async function createTodo(addTodo) {
 }
 
 export async function updateTodo(updateTodo) {
-  await Todo.update(updateTodo, {
+  const updatedTodoNumbers = await Todo.update(updateTodo, {
     where: {
       id: updateTodo.id,
     },
   });
+
+  return updatedTodoNumbers;
 }
 
 export async function count(search) {
