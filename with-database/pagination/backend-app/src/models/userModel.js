@@ -2,31 +2,32 @@ import { DataTypes } from "sequelize";
 
 import sequelize from "../utils/dbHelper.js";
 
-const Todo = sequelize.define(
-  "Todo",
+const User = sequelize.define(
+  "User",
   {
     id: {
       type: DataTypes.BIGINT,
       primaryKey: true,
     },
-    title: {
+    email: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
-    tag: {
+    password: {
       type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    content: {
-      type: DataTypes.TEXT,
-      allowNull: false,
+      validate: {
+        len: [8, 100],
+      },
     },
   },
   {
-    tableName: "db_todo",
+    tableName: "db_user",
     createdAt: false,
     updatedAt: false,
   },
 );
 
-export default Todo;
+export default User;
